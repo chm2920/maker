@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maker</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="wapper">
+<div id="Container">
+	<div id="Header">
+		<h1>Maker</h1>
+	</div>
+	<div id="PageBody" class="clearfix">
+<%= yield %>
+	</div>
+	<div id="Footer">
+		<div class="foot"></div>
+	</div>
+</div>
+</div>
+</body>
+</html>

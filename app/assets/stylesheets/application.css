@@ -1,0 +1,27 @@
+*,html,div,p,span,h1,h2,h3,h4,h5,h6,ul,ul li{margin:0;padding:0;}
+body{margin:0;padding:0;background:url(/assets/body_bg.png) repeat;font-family:Microsoft Yahei, simsun;font-size:12px;}
+ul, ul li{list-style:none;}
+a{color:#006A92;text-decoration:none;}
+a:hover{color:#006A92;text-decoration:underline;}
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }
+* html>body .clearfix { display:inline-block; width:100%; }
+* html .clearfix { height:1%; /* End hide from IE-mac */ } 
+/* ie7 hack*/ 
+*+html .clearfix { min-height:1%; } 
+.clearfix{zoom:1;} 
+
+.section-t{padding:8px 0;line-height:22px;}
+
+.wapper{margin:0;padding:0;width:100%;}
+#Container{margin:0 auto;padding:0;width:1020px;background:#FFF;}
+
+#Header{padding:20px 0 0;}
+#Header h1{padding:0 0 0 30px;height:60px;line-height:60px;font-size:24px;font-weight:bold;color:#ff010f;}
+
+#PageBody{margin:0;}
+	.main-news{float:left;display:inline;margin:20px 0 20px 20px;width:580px;}
+	.side{float:right;display:inline;margin:20px 20px 20px 0;width:360px;}
+	.side-b{margin-top:20px;}
+
+#Footer{margin:40px 0;text-align:center;}
+	.foot{color:#FFF;}
