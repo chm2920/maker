@@ -1,6 +1,16 @@
 *,html,div,p,span,h1,h2,h3,h4,h5,h6,ul,ul li{margin:0;padding:0;}
 body{margin:0;padding:0;background:url(/assets/body_bg.png) repeat;font-family:Microsoft Yahei, simsun;font-size:12px;}
 ul, ul li{list-style:none;}
+input,select{vertical-align:middle;}
+ul,li,ol{list-style:none;}
+em,dfn{font-style:normal;}
+table{border-collapse:collapse;}
+.input,textarea,select{font-size:12px;font-family:"Arial";color:#003F7B;padding:2px;border:1px solid #CBDCD4;vertical-align:middle;}
+.input{height:18px;line-height:18px;}
+select{height:24px;line-height:100%;}
+select:focus,input.input:focus,textarea:focus,px_avatar:focus{color:#5093D5;border-color:#4A4A4A;}
+.checkbox{border:0;margin-right:5px;vertical-align:middle;}
+.button{height:30px;padding:0 30px;*padding:0 15px;line-height:100%;background:#D4D0C8;color:#000;text-align:center;font-size:14px;border:1px solid;border-color:#ffffff #808080 #808080 #ffffff;cursor:pointer;vertical-align:middle;}
 a{color:#006A92;text-decoration:none;}
 a:hover{color:#006A92;text-decoration:underline;}
 .clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }
@@ -10,18 +20,53 @@ a:hover{color:#006A92;text-decoration:underline;}
 *+html .clearfix { min-height:1%; } 
 .clearfix{zoom:1;} 
 
-.section-t{padding:8px 0;line-height:22px;}
+.s-t{padding:8px 0;line-height:22px;font-size:14px;font-weight:bold;}
 
 .wapper{margin:0;padding:0;width:100%;}
 #Container{margin:0 auto;padding:0;width:1020px;background:#FFF;}
 
 #Header{padding:20px 0 0;}
-#Header h1{padding:0 0 0 30px;height:60px;line-height:60px;font-size:24px;font-weight:bold;color:#ff010f;}
+#Header h1{padding:0 0 0 30px;height:60px;line-height:60px;}
+#Header h1 a{font-size:24px;font-weight:bold;color:#ff010f;}
+#Header h1 a:hover{text-decoration:none;color:#ff010f;}
 
 #PageBody{margin:0;}
-	.main-news{float:left;display:inline;margin:20px 0 20px 20px;width:580px;}
+	.main{float:left;display:inline;margin:20px 0 20px 20px;width:580px;}
 	.side{float:right;display:inline;margin:20px 20px 20px 0;width:360px;}
-	.side-b{margin-top:20px;}
 
-#Footer{margin:40px 0;text-align:center;}
-	.foot{color:#FFF;}
+#Footer{margin:10px 0;padding:20px 0;border-top:1px solid #DDD;text-align:center;}
+	.foot{color:#666;}
+
+.pagination{margin:8px 0;padding-right:20px;text-align:right;}
+.pagination span, .pagination em, .pagination a{margin:0 2px;padding:4px 6px;height:20px;line-height:20px;border:1px solid #CCC;color:green;}
+.pagination span{}
+.pagination em{border:1px solid #DDD;background:#DDD;color:#333;}
+.pagination a{color:green;}
+.pagination a:hover{}
+
+/******************* index **************************/
+
+.i-news-list{padding:0 10px;}
+.i-news-list li{padding:20px 0;}
+.i-news-list li h4{line-height:28px;font-size:14px;}
+.i-news-list li .summary{padding:10px 0 0;line-height:22px;}
+.i-news-list li .summary p{padding:2px 0;text-indent:24px;}
+.i-news-list li .info{padding:6px 0 0;line-height:22px;color:#666;}
+
+.side-a{}
+.side-a ul{padding:10px 20px;}
+.side-a ul li{float:left;display:inline;width:150px;line-height:26px;}
+
+.side-b{margin-top:20px;}
+
+.friendlinks{padding:0 20px;}
+.friendlinks ul{padding:10px 0 20px;}
+.friendlinks ul li{float:left;display:inline-block;width:120px;height:22px;line-height:22px;}
+
+/******************* show **************************/
+
+.news-show{padding:20px 40px;}
+.news-show h4{padding:20px 0;font-size:14px;font-weight:bold;text-align:center;}
+.topic-info{line-height:22px;color:#666;text-align:center;}
+.topic-content{padding:20px 0;font-size:14px;}
+.topic-content p{padding:2px 0;line-height:24px;}

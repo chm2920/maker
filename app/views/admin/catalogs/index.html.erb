@@ -1,0 +1,41 @@
+<div class="nav">
+	<div class="list-opts">
+		<div class="nav-links">
+			<a href="/admin/catalogs/new">添加分类</a>
+		</div>
+	</div>
+</div>
+<div class="main">
+<table class="stdtable edtable">
+	<thead>
+		<tr>
+			<th width="10%">编号</th>
+			<th>名称</th>
+			<th width="30%">管理</th>
+		</tr>
+	</thead>
+	<tbody>
+	<%
+		if @catalogs.length>0
+			@catalogs.each do |catalog|
+	%>
+		<tr>
+			<td><%= catalog.id %></td>
+			<td><%= catalog.name %></td>
+			<td>
+				<a href="/admin/catalogs/<%= catalog.id %>/edit">修改</a>|<%= link_to "删除", {:action => "destroy", :id => catalog}, :confirm => "确定删除？", :method => "delete" %>
+			</td>
+		</tr>
+	<%
+			end
+		else
+	%>
+		<tr>
+			<td colspan="3" style="text-align:left;">&nbsp;还没有内容。</td>
+		</tr>
+	<%
+		end
+	%>
+	</tbody>
+</table>
+</div>

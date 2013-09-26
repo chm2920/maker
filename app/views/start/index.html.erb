@@ -1,18 +1,38 @@
-
-<div class="main-news">
-	<div class="section-t">创客新闻</div>
-	<ul>
-		<li><a href="">News</a></li>
-	</ul>
-</div>
-<div class="side">
-	<div class="side-a">
-		<div class="section-t">领域</div>
-		<ul>
-			<li><a href="#">智能家居</a></li>
+<div class="clearfix">
+	<div class="main">
+		<div class="s-t">创客新闻</div>
+		<ul class="i-news-list">
+			<% @topics.each do |topic| %>
+			<li>
+				<h4><a href="<%= topic.show_url %>"><%= topic.title %></a></h4>
+				<div class="summary"><%= topic.summary.html_safe %></div>
+				<div class="info"><%= topic.date %></div>
+			</li>
+			<% end %>
 		</ul>
+		<%= will_paginate @topics %>
 	</div>
-	<div class="side-b">
-		<div class="section-t">器件</div>
+	<div class="side">
+		<div class="side-a">
+			<div class="s-t">领域</div>
+			<ul class="clearfix">
+				<li><a href="#">智能电子产品</a></li>
+				<li><a href="#">智慧家居用品</a></li>
+				<li><a href="#">数码视觉设计</a></li>
+				<li><a href="#">创新服饰设计</a></li>
+				<li><a href="#">其他</a></li>
+			</ul>
+		</div>
+		<div class="side-b">
+			<div class="s-t">器件</div>
+		</div>
 	</div>
+</div>
+<div class="friendlinks">
+	<div class="s-t">友情链接</div>
+	<ul class="clearfix">
+		<% @friendlinks.each do |f| %>
+		<li><a href="<%= f.link %>" target="_blank"><%= f.title %></a></li>
+		<% end %>
+	</ul>
 </div>

@@ -1,0 +1,101 @@
+<%= form_tag({:action => "index"}, {:id => "vbform"}) do %>	
+<div class="nav">
+	<div class="list-opts clearfix">
+		<%= will_paginate @run_logs %>
+		<div class="nav-links">
+			<input type="button" name="selectAll" id="selectAll" value="全选">
+			<input type="button" name="selectOther" id="selectOther" value="反选">
+			<input type="submit" name="delete_all" id="delete_all" value="全部删除">
+			<input type="button" name="clear_all" id="clear_all" value="清空">
+		</div>
+	</div>
+</div>
+<div class="main">
+<table class="stdtable">
+	<thead>
+		<tr>
+			<th width="5%">ID</th>
+			<th width="10%">path</th>
+			<th width="10%">Method</th>
+			<th>params</th>
+			<th width="10%">exception</th>
+			<th width="10%">remote_ip</th>
+			<th width="10%">时间</th>
+			<th width="10%">管理</th>
+		</tr>
+	</thead>
+	<%
+		if @run_logs.length>0
+	%>
+	<tbody>
+	<%
+			@run_logs.each do |run_log|
+	%>
+		<tr>
+			<td><%= check_box_tag 'run_log_ids[]', run_log.id, false, :class => 'checker' %></td>
+			<td><%= run_log.log_path %></td>
+			<td><%= run_log.log_method %></td>
+			<td><%= run_log.log_params %></td>
+			<td><%= run_log.log_exception %></td>
+			<td><%= run_log.log_remote_ip %></td>
+			<td><%= run_log.created_at.strftime("%Y-%m-%d") %></td>
+			<td>
+				<%= link_to "删除", {:action => "destroy", :id => run_log}, :confirm => "确定删除？", :method => "delete" %>
+			</td>
+		</tr>
+	<%
+			end
+	%>
+	</tbody>
+	<%
+		else
+	%>
+	<tbody>
+		<tr>
+			<td colspan="8" style="text-align:left;">&nbsp;还没有内容。</td>
+		</tr>
+	</tbody>
+	<%
+		end
+	%>
+</table>
+<% end %>
+<script>	
+$('#clear_all').click(function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	location.href = "/admin/run_logs/clear";
+});
+
+$('.checker').click(function(e){
+	e.stopPropagation();
+});
+$('.stdtable td').click(function(e){
+	if(e.target.tagName != 'A'){
+		e.preventDefault();
+		e.stopPropagation();
+		var _c = $(this).parent().find('.checker');
+		_c.attr('checked', !!!$(_c).attr('checked'));
+	}
+});
+$('#selectAll').click(function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	$('.checker').attr('checked', true);
+});
+$('#selectOther').click(function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	$('.checker').each(function(index, elem){
+		$(elem).attr('checked', !$(elem).attr('checked'));
+	});
+});
+$('#delete_all').click(function(e){
+	e.stopPropagation();
+	if($('input:checked').length == 0){
+		alert("请选择批量处理的ID!");
+		return false;
+	}
+});
+</script>
+</div>
