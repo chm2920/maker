@@ -1,7 +1,14 @@
-<div class="news-show">
-	<h4><%= @topic.title %></h4>
-	<div class="topic-info"><%= @topic.date %></div>
-	<div class="topic-content">
-		<%= simple_format @topic.content %>
+<div class="clearfix">
+	<div class="main">
+		<div class="news-show">
+			<h4><%= @topic.title %></h4>
+			<div class="topic-info"><%= @topic.date %>&nbsp;&nbsp;&nbsp;来源：<%= @topic.source %></div>
+			<div class="topic-content">
+				<%= simple_format @topic.topic_content.content %>
+			</div>
+		</div>
+	</div>
+	<div class="side">
+		<%= render :partial => "/partials/side" %>
 	</div>
 </div>

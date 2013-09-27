@@ -1,6 +1,6 @@
 <div class="clearfix">
 	<div class="main">
-		<div class="s-t">创客新闻</div>
+		<div class="s-t"><%= @catalog.name %></div>
 		<ul class="i-news-list">
 			<% @topics.each do |topic| %>
 			<li>
@@ -15,12 +15,4 @@
 	<div class="side">
 		<%= render :partial => "/partials/side" %>
 	</div>
-</div>
-<div class="friendlinks">
-	<div class="s-t">友情链接</div>
-	<ul class="clearfix">
-		<% @friendlinks.each do |f| %>
-		<li><a href="<%= f.link %>" target="_blank"><%= f.title %></a></li>
-		<% end %>
-	</ul>
 </div>

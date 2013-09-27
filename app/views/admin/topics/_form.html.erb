@@ -31,6 +31,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td class="data_label">来源：</td>
+			<td class="data_ipt">
+				<%= f.text_field :source, :style => "width:400px;" %>
+			</td>
+		</tr>
+		<tr>
 			<td class="data_label">发布时间：</td>
 			<td class="data_ipt">
 				<input type="text" name="pub_date" value="<% if !@topic.created_at.nil? %><%= @topic.created_at.strftime("%Y-%m-%d") %><% else %><%= Time.now.strftime("%Y-%m-%d") %><% end %>" style="width:400px;" />
@@ -45,7 +51,13 @@
 		<tr>
 			<td class="data_label">内容：</td>
 			<td class="data_ipt">
-				<%= kindeditor_tag :content, @topic.content, :window_onload => true, :width => 680, :height => 400 %>
+				<%= kindeditor_tag :content, @content, :window_onload => true, :width => 680, :height => 400 %>
+			</td>
+		</tr>
+		<tr>
+			<td class="data_label">标签：</td>
+			<td class="data_ipt">
+				<input type="text" name="tags" value="<%= @tags %>" style="width:400px;" />
 			</td>
 		</tr>
 		<tr>

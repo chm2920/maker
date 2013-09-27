@@ -38,11 +38,11 @@ class Admin::TopicsController < Admin::Backend
     @catalogs = Catalog.all
     @page = params[:page]
     @topic = Topic.find(params[:id])
+    @content = @topic.topic_content.content
   end
   
   def create
     @topic = Topic.new(params[:topic])
-    @topic.content = params[:content]
     if !params[:pub_date].nil?
       begin
         @topic.created_at = Date.parse(params[:pub_date]) + 1.day
@@ -52,6 +52,10 @@ class Admin::TopicsController < Admin::Backend
       end
     end
     if @topic.save
+      @topic_content = TopicContent.new
+      @topic_content.topic_id = @topic.id
+      @topic_content.content = params[:content]
+      @topic_content.save
       redirect_to [:admin, :topics]
     else
       render :action => "new"
@@ -60,7 +64,6 @@ class Admin::TopicsController < Admin::Backend
 
   def update
     @topic = Topic.find(params[:id])
-    @topic.content = params[:content]
     if !params[:pub_date].nil?
       begin
         @topic.created_at = Date.parse(params[:pub_date]) + 1.day
@@ -70,6 +73,9 @@ class Admin::TopicsController < Admin::Backend
       end
     end
     @topic.update_attributes(params[:topic])
+    @topic_content = @topic.topic_content
+    @topic_content.content = params[:content]
+    @topic_content.save
     redirect_to :action => :index, :page => params[:page]
   end
   

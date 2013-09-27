@@ -1,5 +1,6 @@
 Maker::Application.routes.draw do
   
+  match "catalog/:id" => "start#catalog"
   match "news/:id" => "start#show"
 
   match "admin" => "account#login"
