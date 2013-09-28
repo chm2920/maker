@@ -1,7 +1,8 @@
 Maker::Application.routes.draw do
   
+  match "(:id).html" => "start#show"
+  match "tag/:id" => "start#tag"
   match "catalog/:id" => "start#catalog"
-  match "news/:id" => "start#show"
 
   match "admin" => "account#login"
   get "account/main"
@@ -22,6 +23,8 @@ Maker::Application.routes.draw do
         get :index
       end
     end
+    
+    resources :tags
         
     get "db/index"
     

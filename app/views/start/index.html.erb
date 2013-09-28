@@ -2,13 +2,7 @@
 	<div class="main">
 		<div class="s-t">创客新闻</div>
 		<ul class="i-news-list">
-			<% @topics.each do |topic| %>
-			<li>
-				<h4><a href="<%= topic.show_url %>"><%= topic.title %></a></h4>
-				<div class="summary"><%= topic.summary.html_safe %></div>
-				<div class="info"><%= topic.date %>&nbsp;&nbsp;&nbsp;<%= topic.source %></div>
-			</li>
-			<% end %>
+			<%= render :partial => "/partials/topic_list" %>
 		</ul>
 		<%= will_paginate @topics %>
 	</div>

@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(:version => 20130927160602) do
     t.string "name"
   end
 
+  create_table "tags_topics", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "topic_id"
+  end
+
   create_table "topic_contents", :force => true do |t|
     t.integer  "topic_id"
     t.text     "content"
@@ -55,17 +60,13 @@ ActiveRecord::Schema.define(:version => 20130927160602) do
   create_table "topics", :force => true do |t|
     t.integer  "catalog_id"
     t.string   "title"
+    t.string   "special_url"
     t.string   "source"
     t.string   "summary"
-    t.integer  "hits",       :default => 0
-    t.integer  "is_trash",   :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  create_table "topics_tags", :id => false, :force => true do |t|
-    t.string "topic_id"
-    t.string "tag_id"
+    t.integer  "hits",        :default => 0
+    t.integer  "is_trash",    :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

@@ -49,6 +49,9 @@ a:hover{color:#006A92;text-decoration:underline;}
 .i-news-list{padding:0 10px;}
 .i-news-list li{padding:20px 0;}
 .i-news-list li h4{line-height:28px;font-size:14px;}
+.i-news-list li .tags{padding:10px 0 0;line-height:22px;font-size:12px;color:#666;}
+.i-news-list li .tags a{margin:0 10px;font-size:12px;color:#666;}
+.i-news-list li .tags a:hover{color:#333;}
 .i-news-list li .summary{padding:10px 0 0;line-height:22px;}
 .i-news-list li .summary p{padding:2px 0;text-indent:24px;}
 .i-news-list li .info{padding:6px 0 0;line-height:22px;font-size:12px;color:#666;}
@@ -62,11 +65,15 @@ a:hover{color:#006A92;text-decoration:underline;}
 .friendlinks{padding:0 20px;}
 .friendlinks ul{padding:10px 0 20px;}
 .friendlinks ul li{float:left;display:inline-block;width:120px;height:22px;line-height:22px;}
+.friendlinks ul li a{font-size:12px;}
 
 /******************* show **************************/
 
 .news-show{padding:0 20px 20px 20px;}
-.news-show h4{padding:20px 0;font-size:18px;font-weight:bold;text-align:center;}
-.topic-info{line-height:22px;font-size:12px;color:#666;text-align:center;}
+.news-show h4{padding:20px 0;font-size:24px;font-weight:bold;text-align:left;}
+.topic-info{line-height:22px;font-size:12px;color:#666;text-align:left;}
+.topic-tags{padding:10px 0 0;line-height:22px;font-size:12px;color:#666;text-align:left;}
+.topic-tags a{margin:0 10px;font-size:12px;color:#666;}
+.topic-tags a:hover{color:#333;}
 .topic-content{padding:30px 0;font-size:14px;}
 .topic-content p{padding:2px 0;line-height:24px;}

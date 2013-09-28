@@ -1,0 +1,42 @@
+<div class="nav">
+	<div class="list-opts clearfix">
+		<%= will_paginate @tags %>
+		<div class="nav-links">
+			<a href="/admin/tags/new">添加Tag</a>
+		</div>
+	</div>
+</div>
+<div class="main">
+<table class="stdtable">
+	<thead>
+		<tr>
+			<th width="5%">ID</th>
+			<th>Tag</th>
+			<th width="40%">管理</th>
+		</tr>
+	</thead>
+	<tbody>
+	<%
+		if @tags.length>0
+			@tags.each do |tag|
+	%>
+		<tr>
+			<td><%= tag.id %></td>
+			<td style="text-align:left;"><a href="<%= tag.show_url %>" target="_blank"><%= tag.name %></a></td>
+			<td>		
+				<a href="/admin/tags/<%= tag.id %>/edit?page=<%= @page %>">修改</a>|<%= link_to "删除", {:action => "destroy", :id => tag, :page => @page}, :confirm => "确定删除？", :method => "delete" %>
+			</td>
+		</tr>
+	<%
+			end
+		else
+	%>
+		<tr>
+			<td colspan="3" style="text-align:left;">&nbsp;还没有内容。</td>
+		</tr>
+	<%
+		end
+	%>
+	</tbody>
+</table>
+</div>

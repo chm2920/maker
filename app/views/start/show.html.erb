@@ -2,7 +2,8 @@
 	<div class="main">
 		<div class="news-show">
 			<h4><%= @topic.title %></h4>
-			<div class="topic-info"><%= @topic.date %>&nbsp;&nbsp;&nbsp;来源：<%= @topic.source %></div>
+			<div class="topic-info">来源：<%= @topic.source %>&nbsp;&nbsp;&nbsp;<%= @topic.date %></div>
+			<div class="topic-tags">标签：<%= @topic.i_show_tags %></div>
 			<div class="topic-content">
 				<%= simple_format @topic.topic_content.content %>
 			</div>

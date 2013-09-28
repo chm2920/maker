@@ -3,6 +3,7 @@ class CreateTopics < ActiveRecord::Migration
     create_table :topics do |t|
       t.integer :catalog_id
       t.string :title
+      t.string :special_url
       t.string :source
       t.string :summary
       t.integer :hits, :default => 0

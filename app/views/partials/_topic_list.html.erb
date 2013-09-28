@@ -1,0 +1,8 @@
+			<% @topics.each do |topic| %>
+			<li>
+				<h4><a href="<%= topic.show_url %>"><%= topic.title %></a></h4>
+				<div class="tags">标签： <%= topic.i_show_tags %></div>
+				<div class="summary"><%= topic.summary.html_safe %></div>
+				<div class="info"><%= topic.date %>&nbsp;&nbsp;&nbsp;<%= topic.source %></div>
+			</li>
+			<% end %>

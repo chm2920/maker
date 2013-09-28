@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Admin::TopicsController < Admin::Backend
   
   def index
@@ -39,6 +40,7 @@ class Admin::TopicsController < Admin::Backend
     @page = params[:page]
     @topic = Topic.find(params[:id])
     @content = @topic.topic_content.content
+    @tags = @topic.show_tags
   end
   
   def create
@@ -56,6 +58,16 @@ class Admin::TopicsController < Admin::Backend
       @topic_content.topic_id = @topic.id
       @topic_content.content = params[:content]
       @topic_content.save
+      tags = params[:tags].gsub('，', ',').split(',')
+      tags.each do |tag|
+        t = Tag.find_by_name(tag)
+        if t.nil?
+          t = Tag.new
+          t.name = tag
+          t.save
+        end
+        @topic.tags << t
+      end
       redirect_to [:admin, :topics]
     else
       render :action => "new"
@@ -76,6 +88,17 @@ class Admin::TopicsController < Admin::Backend
     @topic_content = @topic.topic_content
     @topic_content.content = params[:content]
     @topic_content.save
+    @topic.tags = []
+    tags = params[:tags].gsub('，', ',').split(',')
+    tags.each do |tag|
+      t = Tag.find_by_name(tag)
+      if t.nil?
+        t = Tag.new
+        t.name = tag
+        t.save
+      end
+      @topic.tags << t
+    end
     redirect_to :action => :index, :page => params[:page]
   end
   
