@@ -5,7 +5,7 @@
 			<div class="topic-info">来源：<%= @topic.source %>&nbsp;&nbsp;&nbsp;<%= @topic.date %></div>
 			<div class="topic-tags">标签：<%= @topic.i_show_tags %></div>
 			<div class="topic-content">
-				<%= simple_format @topic.topic_content.content %>
+				<%= format_content @topic.topic_content.content %>
 			</div>
 		</div>
 	</div>
