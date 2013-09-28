@@ -69,7 +69,7 @@ a:hover{color:#006A92;text-decoration:underline;}
 
 /******************* show **************************/
 
-.news-show{padding:0 0 20px 20px;}
+.news-show{padding:0 0 20px 10px;}
 .news-show h4{padding:20px 0;font-size:24px;font-weight:bold;text-align:left;}
 .topic-info{line-height:22px;font-size:12px;color:#666;text-align:left;}
 .topic-tags{padding:10px 0 0;line-height:22px;font-size:12px;color:#666;text-align:left;}
