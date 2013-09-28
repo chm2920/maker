@@ -1,5 +1,5 @@
 *,html,div,p,span,h1,h2,h3,h4,h5,h6,ul,ul li{margin:0;padding:0;}
-body{margin:0;padding:0;background:url(/assets/body_bg.png) repeat;font-family:Microsoft Yahei, simsun;font-size:14px;}
+body{margin:0;padding:0;background:url(/assets/body_bg.png) repeat;font:14px/24px "Oxygen",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;color:#3f484f;}
 ul, ul li{list-style:none;}
 input,select{vertical-align:middle;}
 ul,li,ol{list-style:none;}
