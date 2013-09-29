@@ -11,7 +11,11 @@ Maker::Application.routes.draw do
   match "admin_logout" => "account#logout"
   
   namespace :admin do
-    resources :catalogs
+    resources :catalogs do
+      collection do
+        post :batch_update
+      end
+    end
     
     get "topics/clear"
     delete "topics/del"

@@ -36,7 +36,7 @@ class StartController < ApplicationController
 private
   
   def find_catalogs
-    @catalogs = Catalog.all
+    @catalogs = Catalog.find(:all, :order => "rank asc")
   end
   
 end

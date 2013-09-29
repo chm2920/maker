@@ -1,7 +1,21 @@
 class Admin::CatalogsController < Admin::Backend
   
   def index
-    @catalogs = Catalog.all
+    @catalogs = Catalog.find(:all, :order => "rank asc")
+  end
+  
+  def batch_update
+    if params[:catalog]
+      params[:catalog].each do |key, val|
+        catalog = Catalog.find(key)
+        if catalog
+          catalog.name = val[:name]
+          catalog.rank = val[:rank]
+          catalog.save
+        end
+      end
+    end
+    redirect_to [:admin, :catalogs]
   end
 
   def new

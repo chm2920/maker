@@ -6,11 +6,13 @@
 	</div>
 </div>
 <div class="main">
+<%= form_tag "/admin/catalogs/batch_update" do |f| %>
 <table class="stdtable edtable">
 	<thead>
 		<tr>
 			<th width="10%">编号</th>
 			<th>名称</th>
+			<th width="20%">排序</th>
 			<th width="30%">管理</th>
 		</tr>
 	</thead>
@@ -21,21 +23,34 @@
 	%>
 		<tr>
 			<td><%= catalog.id %></td>
-			<td><%= catalog.name %></td>
+			<td><%= text_field "catalog[#{catalog.id}]", :name, :style => "width:160px", :value => catalog.name %></td>
+			<td><%= text_field "catalog[#{catalog.id}]", :rank, :style => "width:120px", :value => catalog.rank %></td>
 			<td>
 				<a href="/admin/catalogs/<%= catalog.id %>/edit">修改</a>|<%= link_to "删除", {:action => "destroy", :id => catalog}, :confirm => "确定删除？", :method => "delete" %>
 			</td>
 		</tr>
 	<%
 			end
+	%>
+	</tbody>
+	<tfoot>		
+		<tr>
+			<td class="data_sbt" colspan="6">
+				<input type="submit" name="submit" value="保存" />
+			</td>
+		</tr>
+	</tfoot>
+	<%
 		else
 	%>
 		<tr>
-			<td colspan="3" style="text-align:left;">&nbsp;还没有内容。</td>
+			<td colspan="4" style="text-align:left;">&nbsp;还没有内容。</td>
 		</tr>
+	</tbody>
 	<%
 		end
 	%>
 	</tbody>
 </table>
+<% end %>
 </div>

@@ -1,6 +1,6 @@
 class Catalog < ActiveRecord::Base
   
-  attr_accessible :name
+  attr_accessible :name, :rank
   
   has_many :topics, :dependent => :destroy, :order => "id desc"
   

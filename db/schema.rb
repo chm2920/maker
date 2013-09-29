@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130927160602) do
+ActiveRecord::Schema.define(:version => 20130929135544) do
 
   create_table "admins", :force => true do |t|
     t.string   "adminname"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(:version => 20130927160602) do
   end
 
   create_table "catalogs", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "rank"
   end
 
   create_table "friendlinks", :force => true do |t|
