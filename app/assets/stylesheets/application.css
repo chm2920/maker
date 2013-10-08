@@ -41,7 +41,7 @@ a:hover{color:#009fa8;text-decoration:underline;}
 .pagination span, .pagination em, .pagination a{margin:0 2px;padding:4px 6px;height:20px;line-height:20px;border:1px solid #CCC;color:#009fa8;}
 .pagination span{}
 .pagination em{border:1px solid #DDD;background:#DDD;color:#333;}
-.pagination a{color:green;}
+.pagination a{color:#009fa8;}
 .pagination a:hover{}
 
 /******************* index **************************/
