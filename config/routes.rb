@@ -1,14 +1,14 @@
 Maker::Application.routes.draw do
   
-  match "(:id).html" => "start#show"
-  match "tag/:id" => "start#tag"
-  match "catalog/:id" => "start#catalog"
+  get "(:id).html" => "start#show"
+  get "tag/:id" => "start#tag"
+  get "catalog/:id" => "start#catalog"
 
-  match "admin" => "account#login"
+  get "admin" => "account#login"
   get "account/main"
   get "account/desktop"
-  match "admin_login_rst" => "account#login_rst"
-  match "admin_logout" => "account#logout"
+  post "admin_login_rst" => "account#login_rst"
+  get "admin_logout" => "account#logout"
   
   namespace :admin do
     resources :catalogs do
@@ -62,11 +62,11 @@ Maker::Application.routes.draw do
     get  "/filemanager" => "assets#list"
   end
   
-  match "upload_asset" => "assets#create"
-  match "file_manager_json" => "assets#list"
+  get "upload_asset" => "assets#create"
+  get "file_manager_json" => "assets#list"
       
   root :to => 'start#index'
   
-  match "*path" => "application#render_not_found"
+  get "*path" => "application#render_not_found"
   
 end

@@ -1,5 +1,4 @@
 class RunLog < ActiveRecord::Base
-  attr_accessible :log_exception, :log_method, :log_params, :log_path, :log_remote_ip
   
   def self.log_info(params, request, e)
     self.create(:log_path => params[:controller] + "/" + params[:action],

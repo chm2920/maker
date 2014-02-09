@@ -1,9 +1,9 @@
 class StartController < ApplicationController
   
-  before_filter :find_catalogs
+  before_filter :find_tags
   
   def index
-    @topics = Topic.paginate :page => params[:page], :per_page => 8, :conditions => "is_trash = 0", :order => "id desc"
+    @topics = Topic.paginate :page => params[:page], :per_page => 10, :conditions => "is_trash = 0", :order => "id desc"
     @friendlinks = Friendlink.find(:all, :order => "rank asc")
   end
   
@@ -13,7 +13,7 @@ class StartController < ApplicationController
       redirect_to "/"
       return
     end
-    @topics = Topic.paginate :page => params[:page], :per_page => 8, :conditions => ["catalog_id = ? and is_trash = 0", @catalog.id], :order => "id desc"
+    @topics = Topic.paginate :page => params[:page], :per_page => 10, :conditions => ["catalog_id = ? and is_trash = 0", @catalog.id], :order => "id desc"
   end
   
   def tag
@@ -22,7 +22,7 @@ class StartController < ApplicationController
       redirect_to "/"
       return
     end
-    @topics = @tag.topics.paginate :page => params[:page], :per_page => 8, :conditions => ["is_trash = 0"], :order => "id desc"
+    @topics = @tag.topics.paginate :page => params[:page], :per_page => 10, :conditions => ["is_trash = 0"], :order => "id desc"
   end
   
   def show
@@ -35,8 +35,9 @@ class StartController < ApplicationController
   
 private
   
-  def find_catalogs
-    @catalogs = Catalog.find(:all, :order => "rank asc")
+  def find_tags
+    # @catalogs = Catalog.find(:all, :order => "rank asc")
+    @tags = Tag.all
   end
   
 end

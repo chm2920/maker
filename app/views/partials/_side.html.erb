@@ -1,11 +1,11 @@
 		<div class="side-a">
-			<div class="s-t">领域</div>
-			<ul class="catalogs clearfix">
-				<% @catalogs.each do |catalog| %>
-				<li><a href="<%= catalog.show_url %>"><%= catalog.name %></a></li>
+			<div class="s-t">关键词</div>
+			<ul class="tags clearfix">
+				<% @tags.each do |tag| %>
+				<li><a href="<%= tag.show_url %>"><%= tag.name %></a></li>
 				<% end %>
 			</ul>
 		</div>
-		<div class="side-b">
+		<!--div class="side-b">
 			<div class="s-t">器件</div>
-		</div>
+		</div-->

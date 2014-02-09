@@ -1,7 +1,5 @@
 class Topic < ActiveRecord::Base
   
-  attr_accessible :catalog_id, :title, :special_url, :summary, :source, :is_trash
-  
   belongs_to :catalog
   
   has_one :topic_content

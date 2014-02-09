@@ -61,6 +61,9 @@ a:hover{color:#009fa8;text-decoration:underline;}
 .catalogs{padding:10px 20px;}
 .catalogs li{float:left;display:inline;width:33%;min-width:120px;line-height:26px;}
 
+.tags{padding:10px 20px;}
+.tags li{float:left;display:inline-block;margin-left:20px;line-height:26px;}
+
 .side-b{margin-top:20px;}
 
 .friendlinks{padding:0 3%;}
