@@ -14,6 +14,7 @@ class Admin::AdminsController < Admin::Backend
   end
   
   def create
+    params.permit!
     @admin = Admin.find_by_adminname(params[:admin][:adminname])
     if !@admin.nil?
       render :text => "<script>alert('用户名已存在!');location.href='javascript:history.back(-1)';</script>"
@@ -28,6 +29,7 @@ class Admin::AdminsController < Admin::Backend
   end
 
   def update
+    params.permit!
     @admin = Admin.find(params[:id])
     if !params[:admin][:password].blank?
       @admin.adminname = params[:admin][:adminname]

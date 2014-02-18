@@ -76,6 +76,7 @@ class Admin::TopicsController < Admin::Backend
   end
 
   def update
+    params.permit!
     @topic = Topic.find(params[:id])
     if !params[:pub_date].nil?
       begin

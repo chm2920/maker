@@ -5,6 +5,7 @@ class Admin::FriendlinksController < Admin::Backend
   end
   
   def batch_update
+    params.permit!
     if params[:friendlink]
       params[:friendlink].each do |key, val|
         friendlink = Friendlink.find(key)
@@ -24,6 +25,7 @@ class Admin::FriendlinksController < Admin::Backend
   end
   
   def create
+    params.permit!
     @friendlink = Friendlink.new(params[:friendlink])
     f = Friendlink.find_by_sql("select max(rank) as rank from friendlinks")
     @friendlink.rank = !f[0].rank.nil? ? (f[0].rank + 1) : 0

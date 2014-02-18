@@ -5,6 +5,7 @@ class Admin::CatalogsController < Admin::Backend
   end
   
   def batch_update
+    params.permit!
     if params[:catalog]
       params[:catalog].each do |key, val|
         catalog = Catalog.find(key)
@@ -27,6 +28,7 @@ class Admin::CatalogsController < Admin::Backend
   end
   
   def create
+    params.permit!
     @catalog = Catalog.new(params[:catalog])
     if @catalog.save
       redirect_to [:admin, :catalogs]
@@ -36,6 +38,7 @@ class Admin::CatalogsController < Admin::Backend
   end
 
   def update
+    params.permit!
     @catalog = Catalog.find(params[:id])
     @catalog.update_attributes(params[:catalog])
     redirect_to [:admin, :catalogs]

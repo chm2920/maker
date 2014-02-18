@@ -16,6 +16,7 @@ class Admin::TagsController < Admin::Backend
   end
   
   def create
+    params.permit!
     @tag = Tag.new(params[:tag])
     if @tag.save
       redirect_to [:admin, :tags], :page => params[:page]
@@ -25,6 +26,7 @@ class Admin::TagsController < Admin::Backend
   end
 
   def update
+    params.permit!
     @tag = Tag.find(params[:id])
     @tag.update_attributes(params[:tag])
     redirect_to [:admin, :tags], :page => params[:page]
